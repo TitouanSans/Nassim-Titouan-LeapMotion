@@ -21,17 +21,25 @@ function object (x, y, width, height, color) {
     this.color = color;
 }
 
+// 100 = (canvas.height / 10)
+// 50 = (canvas.height / 20)
+// 25 = (canvas.height / 40)
 // JOUEUR
-const Joueur = new object (canvas.width / 4, canvas.height / 3, 50, 50, '');
+const Joueur = new object ( (canvas.width / 2) - (canvas.height / 40), (canvas.height / 2) - (canvas.height / 40), (canvas.height / 20), (canvas.height / 20), '');
 
 // SORTIE
-const Sortie = new object (canvas.width - (canvas.width / 4) - 50, canvas.height - (canvas.height / 3) - 50, 100, 100, '');
+const Sortie = new object (canvas.width / 6 - (canvas.height / 20), canvas.height / 6 - (canvas.height / 20), (canvas.height / 10), (canvas.height / 10), '');
 
 // MURS CONTOURS
-const Cube_1 = new object (0, 0, canvas.width, 200, ''); 
-const Cube_2 = new object (canvas.width - 200, 0, 200, canvas.height, ''); 
-const Cube_3 = new object (0, canvas.height - 200, canvas.width, 200, ''); 
-const Cube_4 = new object (0, 0, 200, canvas.height, ''); 
+const Cube_1 = new object (0, 0, canvas.width, (canvas.height / 20), ''); 
+const Cube_2 = new object (canvas.width - (canvas.height / 20), 0, (canvas.height / 20), canvas.height, ''); 
+const Cube_3 = new object (0, canvas.height - (canvas.height / 20), canvas.width, (canvas.height / 20), ''); 
+const Cube_4 = new object (0, 0, (canvas.height / 20), canvas.height, ''); 
+
+// MURS OBSTACLES
+const Cube_5 = new object ( ( (canvas.width / 2) * (canvas.height * 0.0011)) + (canvas.height / 20), canvas.height / 3, (canvas.height / 10), canvas.height / 3, ''); 
+const Cube_6 = new object ( (canvas.width / 2) * (canvas.height * 0.0009) - (canvas.height / 20), canvas.height - (canvas.height / 3), 340, (canvas.height / 10), ''); 
+const Cube_7 = new object ( (canvas.width / 2) * 0.9 - (canvas.height), (canvas.height / 3) - (1000 - (canvas.height / 3) ) + 100, 100, 1000, ''); 
 
 
 // À chaque "frame" détectée par le device, on exécute une fonction qui récupère cet objet "frame" ...
@@ -116,6 +124,15 @@ controller.on('frame', function(frame) {
 
     context.fillStyle = 'red';
     context.fillRect(Cube_4.x, Cube_4.y, Cube_4.width, Cube_4.height);
+
+    context.fillStyle = 'red';
+    context.fillRect(Cube_5.x, Cube_5.y, Cube_5.width, Cube_5.height);
+
+    context.fillStyle = 'red';
+    context.fillRect(Cube_6.x, Cube_6.y, Cube_6.width, Cube_6.height);
+
+    context.fillStyle = 'red';
+    context.fillRect(Cube_7.x, Cube_7.y, Cube_7.width, Cube_7.height);
 
 
    
