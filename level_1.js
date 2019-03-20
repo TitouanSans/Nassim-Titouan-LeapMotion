@@ -23,29 +23,41 @@ const Cube_5 = new Rect ( (game.canvas.width / 2.5), 0, 100, game.canvas.height 
 const Cube_6 = new Rect ( (game.canvas.width / (10/6) ) - 50, game.canvas.height / 2, 100, game.canvas.height / 2, ''); 
 
 
+
+const piqueImg = new Image();   // Crée un nouvel élément Image
+piqueImg.src = 'images/pique.jpg'; // Définit le chemin vers sa source
+
+
+
 game.update(function() {
     // Dessin de la sortie
     game.context.fillStyle = 'lime';
     game.context.fillRect(Sortie.x, Sortie.y, Sortie.width, Sortie.height);
+
     
     // Dessin des murs
     game.context.fillStyle = 'red';
-    game.context.fillRect(Cube_1.x, Cube_1.y, Cube_1.width, Cube_1.height);
-
+    game.context.drawImage( piqueImg, Cube_1.x, Cube_1.y, Cube_1.width, Cube_1.height);
+    
     game.context.fillStyle = 'red';
     game.context.fillRect(Cube_2.x, Cube_2.y, Cube_2.width, Cube_2.height);
-
+    
+ 
     game.context.fillStyle = 'red';
     game.context.fillRect(Cube_3.x, Cube_3.y, Cube_3.width, Cube_3.height);
+   
 
     game.context.fillStyle = 'red';
     game.context.fillRect(Cube_4.x, Cube_4.y, Cube_4.width, Cube_4.height);
+   
 
     game.context.fillStyle = 'red';
     game.context.fillRect(Cube_5.x, Cube_5.y, Cube_5.width, Cube_5.height);
+   
 
     game.context.fillStyle = 'red';
     game.context.fillRect(Cube_6.x, Cube_6.y, Cube_6.width, Cube_6.height);
+   
 
     // CONDITION COLLISION
     if( collides(game.joueur, Cube_1) ) {
