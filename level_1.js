@@ -2,8 +2,8 @@ const GAME_WIDTH = 1124;
 const GAME_HEIGHT = 750;
 
 // JOUEUR
-const PLAYER_X      = GAME_WIDTH / 4
-const PLAYER_Y      = GAME_HEIGHT / 3
+const PLAYER_X      = 300;
+const PLAYER_Y      = 250;
 const PLAYER_WIDTH  = 50;
 const PLAYER_HEIGHT = 50;
 

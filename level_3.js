@@ -1,6 +1,8 @@
 const GAME_WIDTH = 1200; //600, 300
 const GAME_HEIGHT = 800; //400, 200
 
+const cubeBouge = true;
+
 // JOUEUR
 const PLAYER_WIDTH  = 50;
 const PLAYER_HEIGHT = 50;
@@ -48,59 +50,24 @@ game.update(function() {
     // Dessin des murs
     game.context.fillStyle = 'red';
     game.context.fillRect(Cube_1.x, Cube_1.y, Cube_1.width, Cube_1.height);
-    var img = new Image();   // Crée un nouvel élément img
-    img.addEventListener('load', function() {
-  //  exécute les instructions drawImage ici 
-    }, false);
-    img.src = 'images/pique.jpg'; // définit le chemin de la source
 
     game.context.fillStyle = 'red';
     game.context.fillRect(Cube_2.x, Cube_2.y, Cube_2.width, Cube_2.height);
-    var img = new Image();   // Crée un nouvel élément img
-    img.addEventListener('load', function() {
-  //  exécute les instructions drawImage ici 
-    }, false);
-    img.src = 'images/pique.jpg'; // définit le chemin de la source
 
     game.context.fillStyle = 'red';
     game.context.fillRect(Cube_3.x, Cube_3.y, Cube_3.width, Cube_3.height);
-    var img = new Image();   // Crée un nouvel élément img
-    img.addEventListener('load', function() {
-  //  exécute les instructions drawImage ici 
-    }, false);
-    img.src = 'images/pique.jpg'; // définit le chemin de la source
 
     game.context.fillStyle = 'red';
     game.context.fillRect(Cube_4.x, Cube_4.y, Cube_4.width, Cube_4.height);
-    var img = new Image();   // Crée un nouvel élément img
-    img.addEventListener('load', function() {
-  //  exécute les instructions drawImage ici 
-    }, false);
-    img.src = 'images/pique.jpg'; // définit le chemin de la source
 
     game.context.fillStyle = 'red';
     game.context.fillRect(Cube_5.x, Cube_5.y, Cube_5.width, Cube_5.height);
-    var img = new Image();   // Crée un nouvel élément img
-    img.addEventListener('load', function() {
-  //  exécute les instructions drawImage ici 
-    }, false);
-    img.src = 'images/lava.jpg'; // définit le chemin de la source
 
     game.context.fillStyle = 'red';
     game.context.fillRect(Cube_6.x, Cube_6.y, Cube_6.width, Cube_6.height);
-    var img = new Image();   // Crée un nouvel élément img
-    img.addEventListener('load', function() {
-  //  exécute les instructions drawImage ici 
-    }, false);
-    img.src = 'images/pique.jpg'; // définit le chemin de la source
 
     game.context.fillStyle = 'red';
     game.context.fillRect(Cube_7.x, Cube_7.y, Cube_7.width, Cube_7.height);
-    var img = new Image();   // Crée un nouvel élément img
-    img.addEventListener('load', function() {
-  //  exécute les instructions drawImage ici 
-    }, false);
-    img.src = 'images/pique.jpg'; // définit le chemin de la source
 
     game.context.fillStyle = 'red';
     game.context.fillRect(Cube_8.x, Cube_8.y, Cube_8.width, Cube_8.height);
@@ -167,9 +134,11 @@ game.update(function() {
 
     if( collides(game.joueur, Sortie) ) {
         console.log('SORTIE');
-        changeLevel("level_3.html");
+        changeLevel("level_1.html");
     } 
 });
 
-
+if(cubeBouge) {
+    Cube_16.y += 5;
+};
 
