@@ -1,6 +1,8 @@
 const GAME_WIDTH = 1200; //600, 300
 const GAME_HEIGHT = 800; //400, 200
 
+const cubeBouge = true;
+
 // JOUEUR
 const PLAYER_WIDTH  = 50;
 const PLAYER_HEIGHT = 50;
@@ -132,9 +134,11 @@ game.update(function() {
 
     if( collides(game.joueur, Sortie) ) {
         console.log('SORTIE');
-        changeLevel("level_3.html");
+        changeLevel("level_1.html");
     } 
 });
 
-
+if(cubeBouge) {
+    Cube_16.y += 5;
+};
 
