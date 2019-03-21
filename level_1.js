@@ -13,14 +13,14 @@ const game = new Game(PLAYER_X, PLAYER_Y, PLAYER_WIDTH, PLAYER_HEIGHT);
 const Sortie = new Rect (game.canvas.width - (game.canvas.width / 4) - 50, game.canvas.height - (game.canvas.height / 3) - 50, 100, 100, '');
 
 // MURS CONTOURS
-const Cube_1 = new Rect (0, 0, game.canvas.width, 200, ''); 
-const Cube_2 = new Rect (game.canvas.width - 200, 0, 200, game.canvas.height, ''); 
-const Cube_3 = new Rect (0, game.canvas.height - 200, game.canvas.width, 200, ''); 
-const Cube_4 = new Rect (0, 0, 200, game.canvas.height, ''); 
+const Cube_1 = new drawImage (piqueImg, 0, 0, game.canvas.width, 200, ''); 
+const Cube_2 = new drawImage (piqueImg, game.canvas.width - 200, 0, 200, game.canvas.height, ''); 
+const Cube_3 = new drawImage (piqueImg, 0, game.canvas.height - 200, game.canvas.width, 200, ''); 
+const Cube_4 = new drawImage (piqueImg, 0, 0, 200, game.canvas.height, ''); 
 
 // MURS OBSTACLES
-const Cube_5 = new Rect ( (game.canvas.width / 2.5), 0, 100, game.canvas.height / 2, ''); 
-const Cube_6 = new Rect ( (game.canvas.width / (10/6) ) - 50, game.canvas.height / 2, 100, game.canvas.height / 2, ''); 
+const Cube_5 = new drawImage ( (piqueImg, game.canvas.width / 2.5), 0, 100, game.canvas.height / 2, ''); 
+const Cube_6 = new drawImage ( (piqueImg, game.canvas.width / (10/6) ) - 50, game.canvas.height / 2, 100, game.canvas.height / 2, ''); 
 
 
 
@@ -40,23 +40,23 @@ game.update(function() {
     game.context.drawImage( piqueImg, Cube_1.x, Cube_1.y, Cube_1.width, Cube_1.height);
     
     game.context.fillStyle = 'red';
-    game.context.fillRect(Cube_2.x, Cube_2.y, Cube_2.width, Cube_2.height);
+    game.context.drawImage(piqueImg, Cube_2.x, Cube_2.y, Cube_2.width, Cube_2.height);
     
  
     game.context.fillStyle = 'red';
-    game.context.fillRect(Cube_3.x, Cube_3.y, Cube_3.width, Cube_3.height);
+    game.context.drawImage(piqueImg, Cube_3.x, Cube_3.y, Cube_3.width, Cube_3.height);
    
 
     game.context.fillStyle = 'red';
-    game.context.fillRect(Cube_4.x, Cube_4.y, Cube_4.width, Cube_4.height);
+    game.context.drawImage(piqueImg, Cube_4.x, Cube_4.y, Cube_4.width, Cube_4.height);
    
 
     game.context.fillStyle = 'red';
-    game.context.fillRect(Cube_5.x, Cube_5.y, Cube_5.width, Cube_5.height);
+    game.context.drawImage(piqueImg, Cube_5.x, Cube_5.y, Cube_5.width, Cube_5.height);
    
 
     game.context.fillStyle = 'red';
-    game.context.fillRect(Cube_6.x, Cube_6.y, Cube_6.width, Cube_6.height);
+    game.context.drawImage(piqueImg, Cube_6.x, Cube_6.y, Cube_6.width, Cube_6.height);
    
 
     // CONDITION COLLISION
