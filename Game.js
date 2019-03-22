@@ -1,10 +1,25 @@
 class Rect {
-    constructor(x, y, width, height, color) {
+    constructor(context, x, y, width, height, color) {
         this.x = x;
         this.y = y;
         this.width = width;
         this.height = height;
         this.color = color;
+
+        this.context = context;
+
+        const piqueImg = new Image();   // Crée un nouvel élément Image
+        piqueImg.width = 
+        piqueImg.src = 'images/lava_pattern.jpg'; // Définit le chemin vers sa source
+        piqueImg.onload = () => {
+            this.pattern = this.context.createPattern(piqueImg, 'repeat');
+        }
+    }
+
+    draw() {
+        // this.context.drawImage(piqueImg, this.x, this.y, this.width, this.height);
+        this.context.fillStyle = this.pattern || 'red';
+        this.context.fillRect(this.x, this.y, this.width, this.height);
     }
 }
 
@@ -17,7 +32,7 @@ class Game {
         this.context       = this.canvas.getContext('2d'); // Obtention du contexte de dessin 2d
         
         // Propriétés du joueur
-        this.joueur = new Rect(px, py, pw, ph, 'white');
+        this.joueur = new Rect(this.context, px, py, pw, ph, 'white');
         this.grab = false;
         
         // Leap
@@ -45,7 +60,7 @@ class Game {
     }
 
     drawHand(hand, frame) {
-        console.log('GRAB', hand.grabStrength);
+        // console.log('GRAB', hand.grabStrength);
         
         // Dessin de la paume
         const palmPosition = get2dCoords(hand.stabilizedPalmPosition, frame, this.canvas);
@@ -78,8 +93,9 @@ class Game {
     update(callback) {
         this.controller.on('frame', (frame) => {
             // Efface le canvas
-            this.context.fillStyle = 'rgba(0, 0, 0, 0.3)';
-            this.context.fillRect(0, 0, this.canvas.width, this.canvas.height);
+            // this.context.fillStyle = 'rgba(0, 0, 0, 0.3)';
+            // this.context.fillRect(0, 0, this.canvas.width, this.canvas.height);
+            this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
             // Récupération de la main détectée...
             if (frame.hands[0]) {
