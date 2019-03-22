@@ -47,13 +47,15 @@ class Game {
         if (hand.grabStrength === 1) {
             this.grab = true;
         }
+
+        const palmSquare = {
+            x: palmPosition.x,
+            y: palmPosition.y,
+            width: 15,
+            height: 15
+        };
     
-        if (hand.grabStrength === 1 && 
-            palmPosition.x > this.joueur.x - (this.joueur.height * 2)  &&
-            palmPosition.x < this.joueur.x + (this.joueur.height * 2) &&
-            palmPosition.y > this.joueur.y - (this.joueur.width * 2) &&
-            palmPosition.y < this.joueur.y + (this.joueur.width * 2) ) {
-    
+        if (hand.grabStrength === 1 && collides(this.joueur, palmSquare)) {
             this.joueur.x = palmPosition.x - (this.joueur.width / 2);
             this.joueur.y = palmPosition.y - (this.joueur.height / 2);
         }

@@ -7,3 +7,17 @@ body{
     bottom: 0px; 
     margin: auto;
 }
+
+@font-face {
+    font-family: mario_kart_dsregular;
+    src: url('../fonts/mario-kart-ds-webfont.woff2') format('woff2'),
+         url('../fonts/mario-kart-ds-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+h1{
+    font-family: mario_kart_dsregular;
+    color: black;
+    text-align:center;
+}

@@ -1,5 +1,5 @@
-const GAME_WIDTH = 1124;
-const GAME_HEIGHT = 750;
+const GAME_WIDTH = 1200;
+const GAME_HEIGHT = 800;
 
 // JOUEUR
 const PLAYER_X      = 300;
@@ -10,13 +10,13 @@ const PLAYER_HEIGHT = 50;
 const game = new Game(PLAYER_X, PLAYER_Y, PLAYER_WIDTH, PLAYER_HEIGHT);
 
 // SORTIE
-const Sortie = new Rect (game.context, game.canvas.width - (game.canvas.width / 4) - 50, game.canvas.height - (game.canvas.height / 3) - 50, 100, 100, '');
+const Sortie = new Rect (game.context, 750, 500, 250, 100, '');
 
 // MURS CONTOURS
-const Cube_1 = new Rect (game.context, 0, 0, game.canvas.width, 200, ''); 
-const Cube_2 = new Rect (game.context, game.canvas.width - 200, 0, 200, game.canvas.height, ''); 
-const Cube_3 = new Rect (game.context, 0, game.canvas.height - 200, game.canvas.width, 200, ''); 
-const Cube_4 = new Rect (game.context, 0, 0, 200, game.canvas.height, ''); 
+const Cube_1 = new Rect (game.context, 0, 0, GAME_WIDTH, 200, ''); 
+const Cube_2 = new Rect (game.context, GAME_WIDTH - 200, 0, 200, GAME_HEIGHT, ''); 
+const Cube_3 = new Rect (game.context, 0, GAME_HEIGHT - 200, GAME_WIDTH, 200, ''); 
+const Cube_4 = new Rect (game.context, 0, 0, 200, GAME_HEIGHT, ''); 
 
 // MURS OBSTACLES
 const Cube_5 = new Rect (game.context,  (game.canvas.width / 2.5), 0, 100, game.canvas.height / 2, ''); 
@@ -38,25 +38,25 @@ game.update(function() {
 
     // CONDITION COLLISION
     if( collides(game.joueur, Cube_1) ) {
-        console.log('TOUCHER');
+        console.log('TOUCHER 1');
         game.joueur.x = game.canvas.width / 4; 
         game.joueur.y = game.canvas.height / 3;
     } 
 
     if( collides(game.joueur, Cube_2) ) {
-        console.log('TOUCHER');
+        console.log('TOUCHER 2');
         game.joueur.x = game.canvas.width / 4; 
         game.joueur.y = game.canvas.height / 3;
     } 
 
     if( collides(game.joueur, Cube_3) ) {
-        console.log('TOUCHER');
+        console.log('TOUCHER 3');
         game.joueur.x = game.canvas.width / 4; 
         game.joueur.y = game.canvas.height / 3;
     } 
 
     if( collides(game.joueur, Cube_4) ) {
-        console.log('TOUCHER');
+        console.log('TOUCHER 4');
         game.joueur.x = game.canvas.width / 4; 
         game.joueur.y = game.canvas.height / 3;
     } 
